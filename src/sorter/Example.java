@@ -8,7 +8,8 @@ public class Example {
 		
 		int[] scores = new int[5];
 		for (int i = 0; i < 5; i++) {
-			scores[i] = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter score #" + (i + 1) + ": "));
+			scores[i] = (int)(Math.random() * 10);
+			// scores[i] = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter score #" + (i + 1) + ": "));
 		}
 		
 		String p = "";
