@@ -1,29 +1,26 @@
 package sorter;
 
-import javax.swing.JOptionPane;
-
 public class Example {
 	public static void main(String[] args) {
 		Sort sort = new Sort();
 		
-		int[] scores = new int[5];
-		for (int i = 0; i < 5; i++) {
+		int[] scores = new int[10];
+		System.out.println("Unsorted:");
+		for (int i = 0; i < scores.length; i++) {
 			scores[i] = (int)(Math.random() * 10);
-			// scores[i] = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter score #" + (i + 1) + ": "));
+			System.out.println(scores[i]);
 		}
 		
-		String p = "";
 		int[] sorted = sort.bubble(scores);
+		System.out.println("Bubble:");
 		for (int i = 0; i < sorted.length; i++) {
-			p += "\n" + sorted[i];
+			System.out.println(sorted[i]);
 		}
-		System.out.println("Bubble:" + p);
 		
-		p = "";
 		sorted = sort.selection(scores);
+		System.out.println("Selection:");
 		for (int i = 0; i < sorted.length; i++) {
-			p += "\n" + sorted[i];
+			System.out.println(sorted[i]);
 		}
-		System.out.println("Selection:" + p);
 	}
 }

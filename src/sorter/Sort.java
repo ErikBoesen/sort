@@ -11,9 +11,10 @@ public class Sort {
 			for (int j = 1; j < array.length; j++) {
 				// Is the first value in the set of two larger?
 				// Then it should go after the smaller value.
-				if (array[j-1] > array[j]) {
+				if (array[j - 1] > array[j]) {
 					// Store second value and replace it with first value 
-					int temp = array[j] = array[j - 1];
+					int temp = array[j];
+					array[j] = array[j - 1];
 					// Make first value what the second was before
 					array[j - 1] = temp;
 				}
@@ -21,16 +22,25 @@ public class Sort {
 		}
 		return array;
 	}
+	// Selection sort goes backwards through the array, finding the highest value and moving them to the end in order.
 	public int[] selection(int[] array) {
-		// TODO: Comments and fix bugs here
+		// Go through the array once, from last place to first
 		for (int i = array.length - 1; i > 0; i--) {
+			// The highest number in the starting is always the first.
 			int highest = array[0];
 			int spot = 0;
-			for (int j = 0; j < i; j++) if (array[j] > highest) {
-				highest = array[j];
-				spot = j;
+			// Cycle through all the unsorted numbers, to find the highest 
+			for (int j = 0; j < i; j++) {
+				// Is this number higher than the largest number so far?
+				if (array[j] > highest) {
+					// Then replace the current record with this number.
+					highest = array[j];
+					// ...and store which spot it's in for later.
+					spot = j;
+				}
 			}
-			int temp = array[i] = highest;
+			// After the highest unsorted number has been found, switch the highest number with the last unsorted number.
+			int temp = array[i - 1] = highest;
 			array[spot] = temp;
 		}
 		return array;
