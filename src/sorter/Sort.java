@@ -5,14 +5,14 @@ public class Sort {
 	// This process is repeated until the array has been sorted.
 	public int[] bubble(int[] array) {
 		// This will cause it to loop through the array until it's sorted.
-		// The length of the array will always be enough to fully sort. 
+		// The length of the array will always be enough to fully sort.
 		for (int i = 0; i < array.length; i++) {
 			// Loop through the array once
 			for (int j = 1; j < array.length; j++) {
 				// Is the first value in the set of two larger?
 				// Then it should go after the smaller value.
 				if (array[j - 1] > array[j]) {
-					// Store second value and replace it with first value 
+					// Store second value and replace it with first value
 					int temp = array[j];
 					array[j] = array[j - 1];
 					// Make first value what the second was before
@@ -29,7 +29,7 @@ public class Sort {
 			// The highest number in the starting is always the first.
 			int highest = array[0];
 			int spot = 0;
-			// Cycle through all the unsorted numbers, to find the highest 
+			// Cycle through all the unsorted numbers, to find the highest
 			for (int j = 0; j < i; j++) {
 				// Is this number higher than the largest number so far?
 				if (array[j] > highest) {
@@ -45,4 +45,22 @@ public class Sort {
 		}
 		return array;
 	}
+	public static int[] insertion(int[] array)
+			{
+				//Loop through the array until sorted
+				for (int i = 1; i < array.length; i++)
+				{
+					int index = array[i];
+					int j = i;
+					//The two conditions of the insertion sort.
+					//decrement then imcrement
+					while ((j > 0) && (array[j - 1] > index))
+					{
+						array[j] = array[j - 1];
+						j = j - 1;
+					}
+					array[j] = index;
+				}
+				return array;
+			}
 }

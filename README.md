@@ -9,6 +9,7 @@ Call `sort.algorithm(array)`, where `algorithm` is the name of the algorithm to 
 Currently valid `algorithm`s:
 * `bubble`
 * `selection`
+* 'insertion'
 
 ## Why does this exist?
 * I didn't want to have to rewrite these algorithms again and again in Computer Science class
