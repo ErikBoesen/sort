@@ -28,39 +28,37 @@ public class Sort {
 		for (int i = array.length - 1; i > 0; i--) {
 			// The highest number in the starting is always the first.
 			int highest = array[0];
-			int spot = 0;
+			int index = 0;
 			// Cycle through all the unsorted numbers, to find the highest
 			for (int j = 0; j < i; j++) {
 				// Is this number higher than the largest number so far?
 				if (array[j] > highest) {
 					// Then replace the current record with this number.
 					highest = array[j];
-					// ...and store which spot it's in for later.
-					spot = j;
+					// ...and store which index it's in for later.
+					index = j;
 				}
 			}
 			// After the highest unsorted number has been found, switch the highest number with the last unsorted number.
 			int temp = array[i - 1] = highest;
-			array[spot] = temp;
+			array[index] = temp;
 		}
 		return array;
 	}
-	public static int[] insertion(int[] array)
-			{
-				//Loop through the array until sorted
-				for (int i = 1; i < array.length; i++)
-				{
-					int index = array[i];
-					int j = i;
-					//The two conditions of the insertion sort.
-					//decrement then imcrement
-					while ((j > 0) && (array[j - 1] > index))
-					{
-						array[j] = array[j - 1];
-						j = j - 1;
-					}
-					array[j] = index;
-				}
-				return array;
+	// Insertion sort, for each item it will find where in the already-sorted items it should be placed do so.
+	public static int[] insertion(int[] array) {
+		// Loop through the array until sorted.
+		for (int i = 1; i < array.length; i++) {
+			int index = array[i];
+			int j = i;
+			// If these aren't the right surrounding numbers, switch the target index up one.
+			while ((j > 0) && (array[j - 1] > index)) {
+				array[j] = array[j - 1];
+				j = j - 1;
 			}
+			// After the right position has been found, put in the new number.
+			array[j] = index;
+		}
+		return array;
+	}
 }
